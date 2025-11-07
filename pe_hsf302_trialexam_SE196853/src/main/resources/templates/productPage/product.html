@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Computer</title>
+</head>
+<body>
+<button> <a th:href="@{/computer/create}"> </a> </button>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="computer : ${computer}">
+        <td th:text="${computer.id}"></td>
+        <td th:text="${computer.name}"></td>
+        <td th:text="${computer.description}"></td>
+        <td th:text="${computer.price}"></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
