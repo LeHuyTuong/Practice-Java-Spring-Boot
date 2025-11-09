@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Rice </title>
+    <link th:href="@{/style.css}" type="text/css" rel="stylesheet">
+</head>
+<body>
+<h1>Form Create Rice</h1>
+<form th:action="@{/rice/create}" th:object="${rice}" method="post">
+    <div>
+        <label for="riceName">Name:</label>
+        <input type="text" id="riceName" th:field="*{riceName}" required>
+        <span class="error" th:if="${#fields.hasErrors('riceName')}" th:errors="*{riceName}"></span>
+    </div>
+    <div>
+        <label for="price">price:</label>
+        <input type="number" id="price" th:field="*{price}" required>
+        <span class="error" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+    </div>
+    <div>
+        <select id="supplierId" name="supplierId">
+            <option th:each="supply : ${supplies}" th:value="${supply.supplierId}" th:text="${supply.supplierName}"></option>
+        </select>
+    </div>
+    <button type="submit">Create</button>
+</form>
+</body>
+</html>

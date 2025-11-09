@@ -1,0 +1,13 @@
+package fa25.se196853;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class PeHsf302260925Se196853Application {
+
+    public static void main(String[] args) {
+        SpringApplication.run(PeHsf302260925Se196853Application.class, args);
+    }
+
+}

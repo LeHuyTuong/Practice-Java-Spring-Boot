@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SE196853 - Rice Management Page</title>
+    <link th:href="@{/style.css}" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div th:if="${account.getRole().equalsIgnoreCase('Admin')}">
+    <button> <a th:href="@{/rice/create}">Add Rice </a> </button>
+</div>
+<a href="/logout">Logout</a>
+<table>
+    <thead>
+    <tr>
+        <th>rice_id</th>
+        <th>rice_name</th>
+        <th>price</th>
+        <th>created_at</th>
+        <th>supplier_name</th>
+        <th th:if="${account.getRole().equalsIgnoreCase('Admin')}">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="rice : ${rices}">
+        <td th:text="${rice.riceId}"></td>
+        <td th:text="${rice.riceName}"></td>
+        <td th:text="${rice.price}"></td>
+        <td th:text="${rice.price}"></td>
+        <td th:text="${rice.supply.supplierName}"></td>
+        <td th:if="${account.getRole().equalsIgnoreCase('Admin')}" class="actions">
+            <button><a th:href="@{'/rice/update/' + ${rice.riceId}}">Edit</a></button>
+            <button><a th:href="@{'/rice/delete/' + ${rice.riceId}}">Delete</a></button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
